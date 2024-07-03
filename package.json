@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "supabase-sync": "npx supabase gen types typescript --project-id 'cguxpeghdqcqfdhvkmyv' --schema public > types/tableSchema.ts"
   },
   "dependencies": {
     "@supabase/auth-ui-react": "^0.4.7",
@@ -28,6 +29,7 @@
     "eslint": "^8",
     "eslint-config-next": "14.1.4",
     "postcss": "^8",
+    "supabase": ">=1.8.1",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
   }
