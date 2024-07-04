@@ -9,7 +9,211 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      [_ in never]: never
+      group: {
+        Row: {
+          created_at: string
+          deleted_at: string | null
+          id: string
+          intro: string | null
+          name: string | null
+          updated_at: string | null
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          deleted_at?: string | null
+          id?: string
+          intro?: string | null
+          name?: string | null
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          deleted_at?: string | null
+          id?: string
+          intro?: string | null
+          name?: string | null
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "group_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      member: {
+        Row: {
+          created_at: string
+          deleted_at: string | null
+          group_id: string | null
+          id: string
+          pray_summary: string | null
+          updated_at: string | null
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          deleted_at?: string | null
+          group_id?: string | null
+          id?: string
+          pray_summary?: string | null
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          deleted_at?: string | null
+          group_id?: string | null
+          id?: string
+          pray_summary?: string | null
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "member_group_id_fkey"
+            columns: ["group_id"]
+            isOneToOne: false
+            referencedRelation: "group"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "member_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      pray: {
+        Row: {
+          created_at: string
+          deleted_at: string | null
+          id: string
+          pray_sheet_id: string | null
+          updated_at: string | null
+          user_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          deleted_at?: string | null
+          id?: string
+          pray_sheet_id?: string | null
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          deleted_at?: string | null
+          id?: string
+          pray_sheet_id?: string | null
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "pray_pray_sheet_id_fkey"
+            columns: ["pray_sheet_id"]
+            isOneToOne: false
+            referencedRelation: "pray_sheet"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "pray_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      pray_sheet: {
+        Row: {
+          content: string | null
+          created_at: string
+          deleted_at: string | null
+          group_id: string | null
+          id: string
+          updated_at: string | null
+          user_id: string | null
+        }
+        Insert: {
+          content?: string | null
+          created_at?: string
+          deleted_at?: string | null
+          group_id?: string | null
+          id?: string
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          content?: string | null
+          created_at?: string
+          deleted_at?: string | null
+          group_id?: string | null
+          id?: string
+          updated_at?: string | null
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "pray_sheet_group_id_fkey"
+            columns: ["group_id"]
+            isOneToOne: false
+            referencedRelation: "group"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "pray_sheet_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          full_name: string | null
+          id: string
+          updated_at: string | null
+          username: string | null
+          website: string | null
+        }
+        Insert: {
+          avatar_url?: string | null
+          full_name?: string | null
+          id: string
+          updated_at?: string | null
+          username?: string | null
+          website?: string | null
+        }
+        Update: {
+          avatar_url?: string | null
+          full_name?: string | null
+          id?: string
+          updated_at?: string | null
+          username?: string | null
+          website?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "profiles_id_fkey"
+            columns: ["id"]
+            isOneToOne: true
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
