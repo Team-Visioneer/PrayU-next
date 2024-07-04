@@ -97,7 +97,7 @@ export type Database = {
           created_at: string
           deleted_at: string | null
           id: string
-          pray_sheed_id: string | null
+          pray_sheet_id: string | null
           updated_at: string | null
           user_id: string | null
         }
@@ -105,7 +105,7 @@ export type Database = {
           created_at?: string
           deleted_at?: string | null
           id?: string
-          pray_sheed_id?: string | null
+          pray_sheet_id?: string | null
           updated_at?: string | null
           user_id?: string | null
         }
@@ -113,14 +113,14 @@ export type Database = {
           created_at?: string
           deleted_at?: string | null
           id?: string
-          pray_sheed_id?: string | null
+          pray_sheet_id?: string | null
           updated_at?: string | null
           user_id?: string | null
         }
         Relationships: [
           {
-            foreignKeyName: "pray_pray_sheed_id_fkey"
-            columns: ["pray_sheed_id"]
+            foreignKeyName: "pray_pray_sheet_id_fkey"
+            columns: ["pray_sheet_id"]
             isOneToOne: false
             referencedRelation: "pray_sheet"
             referencedColumns: ["id"]
