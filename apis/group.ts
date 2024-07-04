@@ -7,7 +7,8 @@ export const getGroupById = async (group_id: string) => {
     .select("*")
     .eq("id", group_id)
     .is("deleted_at", null);
-  return result.data;
+
+  return result;
 };
 
 export const fetchGroupByUserId = async (userId: string) => {
@@ -17,7 +18,8 @@ export const fetchGroupByUserId = async (userId: string) => {
     .select("*")
     .eq("user_id", userId)
     .is("deleted_at", null);
-  return result.data;
+
+  return result;
 };
 
 export const createGroup = async (name: string, intro: string = "") => {
@@ -26,5 +28,6 @@ export const createGroup = async (name: string, intro: string = "") => {
     .from("group")
     .insert([{ name, intro }])
     .select();
-  return result.data;
+
+  return result;
 };
